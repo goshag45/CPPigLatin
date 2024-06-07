@@ -8,6 +8,7 @@ std::string getUserInput() {
     return userInput;
 }
 
+// this will only work for individual words at the moment, damn it
 std::string pigify(std::string inputString) {
     // IF CONS, MOVE TO END AND ADD AY
     // IF VOWEL, ADD YAY
@@ -16,6 +17,14 @@ std::string pigify(std::string inputString) {
     std::string piggedOutput;
     // loop through input string as characters until you reach a 
     // if character is in consArr
+    // move char to end of inputString
+    for (int i = 0; i < inputString.size(); i++) {
+        if (consArr.find(inputString[i])) {
+            
+        }
+
+    }
+    
 
     return piggedOutput;
 }
