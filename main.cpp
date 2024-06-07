@@ -9,9 +9,15 @@ std::string getUserInput() {
 }
 
 std::string pigify(std::string inputString) {
+    // IF CONS, MOVE TO END AND ADD AY
+    // IF VOWEL, ADD YAY
     char consArr[22] = "bcdfghjklmnpqrstvwxyz";
     char vowelArr[6] = "aeiou";
-    return "blah";
+    std::string piggedOutput;
+    // loop through input string as characters until you reach a 
+    // if character is in consArr
+
+    return piggedOutput;
 }
 
 int main() {
