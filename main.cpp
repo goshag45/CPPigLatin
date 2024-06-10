@@ -20,12 +20,19 @@ bool isVowel(char ch) {
 // this will only work for individual words at the moment, damn it
 std::string pigify(std::string inputString) {
     if (isVowel(inputString[0])) {
-
+        return inputString + "yay";
     } else {
+        size_t pos = 0;
+        while (pos < inputString.size() && !isVowel(inputString[pos])) {
+            ++pos;
+        }
 
+        if (pos == inputString.size()) {
+            return inputString + "ay";
+        } else {
+            return inputString.substr(pos) + inputString.substr(0, pos) + "ay";
+        }
     }
-
-    return piggedOutput;
 }
 
 int main() {
