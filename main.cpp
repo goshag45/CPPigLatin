@@ -11,13 +11,11 @@ std::string getUserInput() {
     return userInput;
 }
 
-// Function to check if a character is a vowel
 bool isVowel(char ch) {
     char vowels[] = "aeiouAEIOU";
     return strchr(vowels, ch) != nullptr;
 }
 
-// this will only work for individual words at the moment, damn it
 std::string pigify(std::string inputString) {
     if (isVowel(inputString[0])) {
         return inputString + "yay";
