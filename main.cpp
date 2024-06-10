@@ -7,7 +7,7 @@ std::string getUserInput() {
     std::string userInput;
     std::cout << "Please enter string to pigify: ";
     std::cin >> userInput;
-    std::cout << "Thank you for the input" << std::endl;
+    std::cout << "Input collected succesfully" << std::endl;
     return userInput;
 }
 
@@ -19,8 +19,11 @@ bool isVowel(char ch) {
 
 // this will only work for individual words at the moment, damn it
 std::string pigify(std::string inputString) {
-    std::string piggedOutput = inputString;
+    if (isVowel(inputString[0])) {
 
+    } else {
+
+    }
 
     return piggedOutput;
 }
