@@ -33,16 +33,19 @@ std::string pigifyWord(std::string InputString) {
     }
 }
 
+// why use pointers here?
+std::vector<std:string> SplitString(const std::string& str) {
+
+
+}
+
+
 std::string pigifySentence(std::string InputSentence) {
     if (strchr(InputSentence, " ") == nullptr) {
         return pigifyWord(InputSentence);
     }
 
-    // got it from stack overflow, hope it works
-    auto SplitList = std::find_if(str.begin(), str.end(), [] (const char element) -> bool {
-                       return std::isspace(element) || std::ispunct(element);})
-    
-    for (int i = 0; i < SplitList; i++)
+
 }
 
 int main() {
