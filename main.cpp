@@ -11,34 +11,38 @@ std::string getUserInput() {
     return userInput;
 }
 
-bool isVowel(char ch) {
+bool isVowel(char Character) {
     char vowels[] = "aeiouAEIOU";
-    return strchr(vowels, ch) != nullptr;
+    return strchr(vowels, Character) != nullptr;
 }
 
-std::string pigifyWord(std::string inputString) {
-    if (isVowel(inputString[0])) {
-        return inputString + "yay";
+std::string pigifyWord(std::string InputString) {
+    if (isVowel(InputString[0])) {
+        return InputString + "yay";
     } else {
         size_t pos = 0;
-        while (pos < inputString.size() && !isVowel(inputString[pos])) {
+        while (pos < InputString.size() && !isVowel(InputString[pos])) {
             ++pos;
         }
 
-        if (pos == inputString.size()) {
-            return inputString + "ay";
+        if (pos == InputString.size()) {
+            return InputString + "ay";
         } else {
-            return inputString.substr(pos) + inputString.substr(0, pos) + "ay";
+            return InputString.substr(pos) + InputString.substr(0, pos) + "ay";
         }
     }
 }
 
-std::string pigifySentence(std::string inputSentence) {
-    if (strchr(inputSentence, " ") == nullptr) {
-        return pigifyWord(inputSentence);
+std::string pigifySentence(std::string InputSentence) {
+    if (strchr(InputSentence, " ") == nullptr) {
+        return pigifyWord(InputSentence);
     }
 
+    // got it from stack overflow, hope it works
+    auto SplitList = std::find_if(str.begin(), str.end(), [] (const char element) -> bool {
+                       return std::isspace(element) || std::ispunct(element);})
     
+    for (int i = 0; i < SplitList; i++)
 }
 
 int main() {
