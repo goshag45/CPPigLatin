@@ -16,7 +16,7 @@ bool isVowel(char ch) {
     return strchr(vowels, ch) != nullptr;
 }
 
-std::string pigify(std::string inputString) {
+std::string pigifyWord(std::string inputString) {
     if (isVowel(inputString[0])) {
         return inputString + "yay";
     } else {
@@ -33,9 +33,17 @@ std::string pigify(std::string inputString) {
     }
 }
 
+std::string pigifySentence(std::string inputSentence) {
+    if (strchr(inputSentence, " ") == nullptr) {
+        return pigifyWord(inputSentence);
+    }
+
+    
+}
+
 int main() {
     std::cout << "PIG LATIN BOX" << std::endl;
     std::string userInput = getUserInput();
-    std::cout << "Pigified: " << pigify(userInput) << std::endl;
+    std::cout << "Pigified: " << pigifySentence(userInput) << std::endl;
     return 0;
 }
