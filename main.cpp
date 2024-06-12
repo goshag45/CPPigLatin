@@ -16,19 +16,22 @@ bool isVowel(char Character) {
     return strchr(vowels, Character) != nullptr;
 }
 
-std::string pigifyWord(std::string InputString) {
-    if (isVowel(InputString[0])) {
-        return InputString + "yay";
+std::string pigifyWord(const std::string &word) {
+    size_t pos = 0;
+    std::string coreWord = word;
+    std::string punctuation = "";
+
+    if (isVowel(word[0])) {
+        return word + "yay";
     } else {
-        size_t pos = 0;
-        while (pos < InputString.size() && !isVowel(InputString[pos])) {
+        while (pos < word.size() && !isVowel(word[pos])) {
             ++pos;
         }
 
-        if (pos == InputString.size()) {
-            return InputString + "ay";
+        if (pos == word.size()) {
+            return word + "ay";
         } else {
-            return InputString.substr(pos) + InputString.substr(0, pos) + "ay";
+            return word.substr(pos) + word.substr(0, pos) + "ay";
         }
     }
 }
