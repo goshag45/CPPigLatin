@@ -21,17 +21,22 @@ std::string pigifyWord(const std::string &word) {
     std::string coreWord = word;
     std::string punctuation = "";
 
-    if (isVowel(word[0])) {
-        return word + "yay";
+    while (pos < coreWord.size() && ispunct(coreWord.back())) {
+        punctuation = coreWord.back() + punctuation;
+        coreWord.pop_back();
+    }
+
+    if (isVowel(coreWord[0])) {
+        return coreWord + "yay";
     } else {
-        while (pos < word.size() && !isVowel(word[pos])) {
+        while (pos < coreWord.size() && !isVowel(coreWord[pos])) {
             ++pos;
         }
 
-        if (pos == word.size()) {
-            return word + "ay";
+        if (pos == coreWord.size()) {
+            return coreWord + "ay" + punctuation;
         } else {
-            return word.substr(pos) + word.substr(0, pos) + "ay";
+            return coreWord.substr(pos) + coreWord.substr(0, pos) + "ay" + punctuation;
         }
     }
 }
