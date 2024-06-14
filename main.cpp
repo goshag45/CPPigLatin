@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <algorithm>
+#include <vector>
 
 std::string getUserInput() {
     std::string userInput;
@@ -45,12 +46,12 @@ std::string pigifyWord(const std::string &word) {
     }
 }
 
-std::vector<std:string> SplitString(const std::string &str) {
+std::vector<std::string> SplitString(const std::string &str) {
     std::vector<std::string> words;
     std::string word;
 
     for (char ch : str) {
-        if (std::ispace(ch) || std::ispunct(ch)) {
+        if (std::isspace(ch) || std::ispunct(ch)) {
             if (!word.empty()) {
                 words.push_back(word);
                 word.clear();
@@ -71,10 +72,8 @@ std::vector<std:string> SplitString(const std::string &str) {
 
 
 std::string pigifySentence(std::string InputSentence) {
-    if (strchr(InputSentence, " ") == nullptr) {
-        return pigifyWord(InputSentence);
-    }
-
+    std::vector<std::string> sentenceElements = SplitString(InputSentence);
+    
 
 }
 
