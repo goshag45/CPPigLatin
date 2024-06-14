@@ -7,10 +7,8 @@
   "C_Cpp_Runner.msvcBatchPath": "C:/Program Files/Microsoft Visual Studio/VR_NR/Community/VC/Auxiliary/Build/vcvarsall.bat",
   "C_Cpp_Runner.useMsvc": false,
   "C_Cpp_Runner.warnings": [
-    // https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
     "-Wall",
     "-Wextra",
-    // "-Wpedantic", probably dont need this
     "-Wshadow",
     "-Wformat=2",
     "-Wcast-align",
