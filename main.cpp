@@ -17,6 +17,10 @@ bool isVowel(char Character) {
 }
 
 std::string pigifyWord(const std::string &word) {
+    if (word.empty()) {
+        return "";
+    }
+
     size_t pos = 0;
     std::string coreWord = word;
     std::string punctuation = "";
@@ -41,10 +45,28 @@ std::string pigifyWord(const std::string &word) {
     }
 }
 
-// why use pointers here?
-std::vector<std:string> SplitString(const std::string& str) {
+std::vector<std:string> SplitString(const std::string &str) {
+    std::vector<std::string> words;
+    std::string word;
 
+    for (char ch : str) {
+        if (std::ispace(ch) || std::ispunct(ch)) {
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
+            }
+            if (std::ispunct(ch)) {
+                words.push_back(std::string(1, ch));
+            }
+        } else {
+            word += ch;
+        }
+    }
+    if (!word.empty()) {
+        words.push_back(word);
+    }
 
+    return words;
 }
 
 
