@@ -74,8 +74,10 @@ std::vector<std::string> SplitString(const std::string &str) {
 std::string pigifySentence(std::string InputSentence) {
     std::vector<std::string> sentenceElements = SplitString(InputSentence);
     
-    for (std::string element : sentenceElements) {
+    for (std::string &element : sentenceElements) {
+        if (std::ispunct(element[0])) {
 
+        }
     }
 
     return ;
