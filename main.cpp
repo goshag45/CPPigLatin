@@ -8,7 +8,7 @@
 std::string getUserInput() {
     std::string userInput;
     std::cout << "Please enter string to pigify: ";
-    std::cin >> userInput;
+     std::getline(std::cin, userInput);
     std::cout << "Input collected succesfully" << std::endl;
     return userInput;
 }
@@ -33,7 +33,7 @@ std::string pigifyWord(const std::string &word) {
     }
 
     if (isVowel(coreWord[0])) {
-        return coreWord + "yay";
+        return coreWord + "yay" + punctuation;
     } else {
         while (pos < coreWord.size() && !isVowel(coreWord[pos])) {
             ++pos;
