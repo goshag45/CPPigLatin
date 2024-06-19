@@ -3,6 +3,7 @@
 #include <string.h>
 #include <algorithm>
 #include <vector>
+#include <sstream>
 
 std::string getUserInput() {
     std::string userInput;
@@ -73,14 +74,23 @@ std::vector<std::string> SplitString(const std::string &str) {
 
 std::string pigifySentence(std::string InputSentence) {
     std::vector<std::string> sentenceElements = SplitString(InputSentence);
+    std::ostringstream oss;
+    bool firstWord = true;
+
     
     for (std::string &element : sentenceElements) {
-        if (std::ispunct(element[0])) {
-
+        if (!firstWord) {
+            oss << " ";
         }
+        if (std::ispunct(element[0])) {
+            oss < element;
+        } else {
+            oss << pigifyWord(element);
+        }
+        firstWord = false;
     }
 
-    return ;
+    return oss.str();
 }
 
 int main() {
