@@ -72,7 +72,7 @@ std::vector<std::string> SplitString(const std::string &str) {
 }
 
 
-std::string pigifySentence(std::string InputSentence) {
+std::string pigifySentence(std::string &InputSentence) {
     std::vector<std::string> sentenceElements = SplitString(InputSentence);
     std::ostringstream oss;
     bool firstWord = true;
@@ -83,7 +83,7 @@ std::string pigifySentence(std::string InputSentence) {
             oss << " ";
         }
         if (std::ispunct(element[0])) {
-            oss < element;
+            oss << element;
         } else {
             oss << pigifyWord(element);
         }
