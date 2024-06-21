@@ -6,6 +6,11 @@
 #include <sstream>
 #include <algorithm>
 
+// TODO
+// add capital letters to start of words (might need some kind of memory)
+// investigate possible edge cases
+// MAYBE add decoder as another thing
+
 std::string getUserInput() {
     std::string userInput;
     std::cout << "Please enter string to pigify: ";
@@ -34,7 +39,7 @@ std::string pigifyWord(const std::string &word) {
     }
     // this is cool https://stackoverflow.com/questions/313970/how-to-convert-an-instance-of-stdstring-to-lower-case
     std::transform(coreWord.begin(), coreWord.end(), coreWord.begin(), [](unsigned char c) { return std::tolower(c); });
-    
+
     if (isVowel(coreWord[0])) {
         return coreWord + "yay" + punctuation;
     } else {
