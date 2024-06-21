@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 
 std::string getUserInput() {
     std::string userInput;
@@ -31,7 +32,9 @@ std::string pigifyWord(const std::string &word) {
         punctuation = coreWord.back() + punctuation;
         coreWord.pop_back();
     }
-
+    // this is cool https://stackoverflow.com/questions/313970/how-to-convert-an-instance-of-stdstring-to-lower-case
+    std::transform(coreWord.begin(), coreWord.end(), coreWord.begin(), [](unsigned char c) { return std::tolower(c); });
+    
     if (isVowel(coreWord[0])) {
         return coreWord + "yay" + punctuation;
     } else {
