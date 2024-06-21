@@ -79,12 +79,13 @@ std::string pigifySentence(std::string &InputSentence) {
 
     
     for (std::string &element : sentenceElements) {
-        if (!firstWord) {
-            oss << " ";
+        if (!firstWord && std::ispunct(element[0])) {
+            oss << element << " ";
         }
-        if (std::ispunct(element[0])) {
-            oss << element;
-        } else {
+        // if (std::ispunct(element[0])) {
+        //     oss << element;
+        // } 
+        else {
             oss << pigifyWord(element);
         }
         firstWord = false;
