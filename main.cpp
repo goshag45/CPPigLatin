@@ -11,21 +11,25 @@
 // investigate possible edge cases
 // MAYBE add decoder as another thing
 
-std::string getUserInput() {
+std::string getUserInput()
+{
     std::string userInput;
     std::cout << "Please enter string to pigify: ";
-     std::getline(std::cin, userInput);
+    std::getline(std::cin, userInput);
     std::cout << "Input collected succesfully" << std::endl;
     return userInput;
 }
 
-bool isVowel(char Character) {
+bool isVowel(char Character)
+{
     char vowels[] = "aeiouAEIOU";
     return strchr(vowels, Character) != nullptr;
 }
 
-std::string pigifyWord(const std::string &word) {
-    if (word.empty()) {
+std::string pigifyWord(const std::string &word)
+{
+    if (word.empty())
+    {
         return "";
     }
 
@@ -33,70 +37,99 @@ std::string pigifyWord(const std::string &word) {
     std::string coreWord = word;
     std::string punctuation = "";
 
-    while (pos < coreWord.size() && ispunct(coreWord.back())) {
+    while (pos < coreWord.size() && ispunct(coreWord.back()))
+    {
         punctuation = coreWord.back() + punctuation;
         coreWord.pop_back();
     }
     // check if first ch is uppercase and remember
     bool hasUpper = false;
-    if (std::isupper(coreWord[0])) {
+    if (std::isupper(coreWord[0]))
+    {
+        std::cout << coreWord;
         hasUpper = true;
     }
 
     // this is cool https://stackoverflow.com/questions/313970/how-to-convert-an-instance-of-stdstring-to-lower-case
-    std::transform(coreWord.begin(), coreWord.end(), coreWord.begin(), [](unsigned char c) { return std::tolower(c); });
+    std::transform(coreWord.begin(), coreWord.end(), coreWord.begin(), [](unsigned char c)
+                   { return std::tolower(c); });
 
-    if (isVowel(coreWord[0])) {
+    if (isVowel(coreWord[0]))
+    {
         return coreWord + "yay" + punctuation;
-    } else {
-        while (pos < coreWord.size() && !isVowel(coreWord[pos])) {
+    }
+    else
+    {
+        while (pos < coreWord.size() && !isVowel(coreWord[pos]))
+        {
             ++pos;
         }
 
-        if (pos == coreWord.size()) {
+        if (pos == coreWord.size())
+        {
+            if (hasUpper)
+            {
+                toupper(coreWord[0]);
+            }
             return coreWord + "ay" + punctuation;
-        } else {
+        }
+        else
+        {
+            if (hasUpper)
+            {
+                toupper(coreWord[0]);
+            }
             return coreWord.substr(pos) + coreWord.substr(0, pos) + "ay" + punctuation;
         }
     }
 }
 
-std::vector<std::string> SplitString(const std::string &str) {
+std::vector<std::string> SplitString(const std::string &str)
+{
     std::vector<std::string> words;
     std::string word;
 
-    for (char ch : str) {
-        if (std::isspace(ch) || std::ispunct(ch)) {
-            if (!word.empty()) {
+    for (char ch : str)
+    {
+        if (std::isspace(ch) || std::ispunct(ch))
+        {
+            if (!word.empty())
+            {
                 words.push_back(word);
                 word.clear();
             }
-            if (std::ispunct(ch)) {
+            if (std::ispunct(ch))
+            {
                 words.push_back(std::string(1, ch));
             }
-        } else {
+        }
+        else
+        {
             word += ch;
         }
     }
-    if (!word.empty()) {
+    if (!word.empty())
+    {
         words.push_back(word);
     }
 
     return words;
 }
 
-
-std::string pigifySentence(std::string &InputSentence) {
+std::string pigifySentence(std::string &InputSentence)
+{
     std::vector<std::string> sentenceElements = SplitString(InputSentence);
     std::ostringstream oss;
     bool firstWord = true;
 
-    
-    for (std::string &element : sentenceElements) {
-        if (!firstWord && std::ispunct(element[0])) {
+    for (std::string &element : sentenceElements)
+    {
+        if (!firstWord && std::ispunct(element[0]))
+        {
             oss << element << " ";
         }
-        else {
+        else
+        {
             oss << pigifyWord(element);
         }
         firstWord = false;
@@ -105,7 +138,8 @@ std::string pigifySentence(std::string &InputSentence) {
     return oss.str();
 }
 
-int main() {
+int main()
+{
     std::cout << "PIG LATIN BOX" << std::endl;
     std::string userInput = getUserInput();
     std::cout << "Pigified: " << pigifySentence(userInput) << std::endl;
