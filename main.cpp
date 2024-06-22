@@ -46,15 +46,13 @@ std::string pigifyWord(const std::string &word) {
 
     if (isVowel(coreWord[0])) {
         return coreWord + "yay" + punctuation;
-    }
-    else {
+    } else {
         while (pos < coreWord.size() && !isVowel(coreWord[pos])){
             ++pos;
         }
 
         if (pos == coreWord.size()) {
-            if (hasUpper)
-            {
+            if (hasUpper) {
                 toupper(coreWord[0]);
             }
             return coreWord + "ay" + punctuation;
@@ -80,8 +78,7 @@ std::vector<std::string> SplitString(const std::string &str) {
             if (std::ispunct(ch)) {
                 words.push_back(std::string(1, ch));
             }
-        }
-        else {
+        } else {
             word += ch;
         }
     }
