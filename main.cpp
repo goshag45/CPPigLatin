@@ -37,6 +37,12 @@ std::string pigifyWord(const std::string &word) {
         punctuation = coreWord.back() + punctuation;
         coreWord.pop_back();
     }
+    // check if first ch is uppercase and remember
+    bool hasUpper = false;
+    for (int i = 0; i < strlen(coreWord); i++) {
+
+    }
+
     // this is cool https://stackoverflow.com/questions/313970/how-to-convert-an-instance-of-stdstring-to-lower-case
     std::transform(coreWord.begin(), coreWord.end(), coreWord.begin(), [](unsigned char c) { return std::tolower(c); });
 
@@ -90,9 +96,6 @@ std::string pigifySentence(std::string &InputSentence) {
         if (!firstWord && std::ispunct(element[0])) {
             oss << element << " ";
         }
-        // if (std::ispunct(element[0])) {
-        //     oss << element;
-        // } 
         else {
             oss << pigifyWord(element);
         }
