@@ -39,8 +39,8 @@ std::string pigifyWord(const std::string &word) {
     }
     // check if first ch is uppercase and remember
     bool hasUpper = false;
-    for (int i = 0; i < strlen(coreWord); i++) {
-
+    if (std::isupper(coreWord[0])) {
+        hasUpper = true;
     }
 
     // this is cool https://stackoverflow.com/questions/313970/how-to-convert-an-instance-of-stdstring-to-lower-case
