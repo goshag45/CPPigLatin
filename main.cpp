@@ -44,25 +44,26 @@ std::string pigifyWord(const std::string &word) {
     std::transform(coreWord.begin(), coreWord.end(), coreWord.begin(), [](unsigned char c)
                    { return std::tolower(c); });
 
+    std::string pigifiedWord;
     if (isVowel(coreWord[0])) {
-        return coreWord + "yay" + punctuation;
+        pigifiedWord = coreWord + "yay";
     } else {
         while (pos < coreWord.size() && !isVowel(coreWord[pos])){
             ++pos;
         }
 
         if (pos == coreWord.size()) {
-            if (hasUpper) {
-                toupper(coreWord[0]);
-            }
-            return coreWord + "ay" + punctuation;
+            pigifiedWord = coreWord + "ay";
         } else {
-            if (hasUpper) {
-                toupper(coreWord[0]);
-            }
-            return coreWord.substr(pos) + coreWord.substr(0, pos) + "ay" + punctuation;
+            pigifiedWord = coreWord.substr(pos) + coreWord.substr(0, pos) + "ay";
         }
     }
+
+    if (hasUpper) {
+        pigifiedWord[0] = std::toupper(pigifiedWord[0]);
+    }
+
+    return pigifiedWord + punctuation;
 }
 
 std::vector<std::string> SplitString(const std::string &str) {
