@@ -7,7 +7,6 @@
 #include <algorithm>
 
 // TODO
-// add capital letters to start of words (might need some kind of memory)
 // investigate possible edge cases
 // MAYBE add decoder as another thing
 
