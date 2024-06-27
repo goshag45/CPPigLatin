@@ -109,9 +109,12 @@ std::string getUserInput() {
 // switch statement time
 int main() {
     int switchInput;
-    std::cin >> switchInput;
 
     std::cout << "PIG LATIN BOX" << std::endl;
+    std::cout << "1. Pigify" << std::endl;
+    std::cout << "2. Unpigify" << std::endl;
+    std::cout << "Please enter your choice: ";
+    std::cin >> switchInput;
     switch(switchInput) {
         case 1: {
             std::string userInput = getUserInput();
