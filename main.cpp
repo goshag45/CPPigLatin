@@ -108,18 +108,21 @@ std::string getUserInput() {
 
 // switch statement time
 int main() {
+    int switchInput;
+    std::cin >> switchInput;
 
-    std::getline(std::cin, userInput);
-
-    switch() {
-        case 1:
-            break;
-        case 2:
-            break;
-
-    }
     std::cout << "PIG LATIN BOX" << std::endl;
-    std::string userInput = getUserInput();
-    std::cout << "Pigified: " << pigifySentence(userInput) << std::endl;
+    switch(switchInput) {
+        case 1: {
+            std::string userInput = getUserInput();
+            std::cout << "Pigified: " << pigifySentence(userInput) << std::endl;
+            break;
+        }
+        case 2: {
+
+            break;
+        }
+    }
+
     return 0;
 }
