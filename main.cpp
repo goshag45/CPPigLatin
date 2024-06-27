@@ -10,14 +10,6 @@
 // investigate possible edge cases
 // MAYBE add decoder as another thing
 
-std::string getUserInput() {
-    std::string userInput;
-    std::cout << "Please enter string to pigify: ";
-    std::getline(std::cin, userInput);
-    std::cout << "Input collected succesfully" << std::endl;
-    return userInput;
-}
-
 bool isVowel(char Character) {
     char vowels[] = "aeiouAEIOU";
     return strchr(vowels, Character) != nullptr;
@@ -106,7 +98,26 @@ std::string pigifySentence(std::string &InputSentence) {
     return oss.str();
 }
 
+std::string getUserInput() {
+    std::string userInput;
+    std::cout << "Please enter string to pigify: ";
+    std::getline(std::cin, userInput);
+    std::cout << "Input collected succesfully" << std::endl;
+    return userInput;
+}
+
+// switch statement time
 int main() {
+
+    std::getline(std::cin, userInput);
+
+    switch() {
+        case 1:
+            break;
+        case 2:
+            break;
+
+    }
     std::cout << "PIG LATIN BOX" << std::endl;
     std::string userInput = getUserInput();
     std::cout << "Pigified: " << pigifySentence(userInput) << std::endl;
