@@ -5,6 +5,7 @@
 #include <vector>
 #include <sstream>
 #include <algorithm>
+#include <limits>
 
 // TODO
 // investigate possible edge cases
@@ -115,6 +116,10 @@ int main() {
     std::cout << "2. Unpigify" << std::endl;
     std::cout << "Please enter your choice: ";
     std::cin >> switchInput;
+
+    // clearing input buffer
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     switch(switchInput) {
         case 1: {
             std::string userInput = getUserInput();
