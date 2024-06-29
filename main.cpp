@@ -117,8 +117,10 @@ int main() {
     std::cout << "Please enter your choice: ";
     std::cin >> switchInput;
 
-    // clearing input buffer
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    // clearing input buffer 
+    //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    // i MUCH prefer this C variant!!
+    while ((getchar()) != '\n');
 
     switch(switchInput) {
         case 1: {
