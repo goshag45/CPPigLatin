@@ -99,6 +99,28 @@ std::string pigifySentence(std::string &InputSentence) {
     return oss.str();
 }
 
+std::string unpigifyWord(const std::string &word) {
+    std::string fixedWord = word;
+
+    return word;
+}
+
+std::string unpigifySentence(std::string &InputSentence) {
+    std::vector<std::string> sentenceElements = SplitString(InputSentence);
+    std::ostringstream oss;
+
+    for (std::string &element : sentenceElements) {
+        if (std::ispunct(element[0])) {
+            oss << element << " ";
+        } else {
+            oss << unpigifyWord(element);
+        }
+    }
+
+    return oss.str();
+}
+
+//-----------------------------------------------------------------------//
 std::string getUserInput() {
     std::string userInput;
     std::cout << "Please enter string to pigify: ";
@@ -118,8 +140,6 @@ int main() {
     std::cin >> switchInput;
 
     // clearing input buffer 
-    //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    // i MUCH prefer this C variant!!
     while ((getchar()) != '\n');
 
     switch(switchInput) {
