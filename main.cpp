@@ -104,7 +104,10 @@ std::string unpigifyWord(const std::string &word) {
     int wordLength = word.size();
 
     // if last 3 characters are 'yay', remove and return word
-    
+    std::string lastThree = word.substr(wordLength - 3);
+    if (lastThree == "yay") {
+        fixedWord = word.substr(0, wordLength - 3);
+    } 
 
     // if last 2 characters are 'ay', remove 
     // iterate backwards, if !isVowel, move to front, if isVowel, return word
