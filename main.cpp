@@ -16,6 +16,30 @@ bool isVowel(char Character) {
     return strchr(vowels, Character) != nullptr;
 }
 
+std::vector<std::string> SplitString(const std::string &str) {
+    std::vector<std::string> words;
+    std::string word;
+
+    for (char ch : str) {
+        if (std::isspace(ch) || std::ispunct(ch)) {
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
+            }
+            if (std::ispunct(ch)) {
+                words.push_back(std::string(1, ch));
+            }
+        } else {
+            word += ch;
+        }
+    }
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+
+    return words;
+}
+
 std::string pigifyWord(const std::string &word) {
     if (word.empty()) {
         return "";
@@ -58,30 +82,6 @@ std::string pigifyWord(const std::string &word) {
     return pigifiedWord + punctuation;
 }
 
-std::vector<std::string> SplitString(const std::string &str) {
-    std::vector<std::string> words;
-    std::string word;
-
-    for (char ch : str) {
-        if (std::isspace(ch) || std::ispunct(ch)) {
-            if (!word.empty()) {
-                words.push_back(word);
-                word.clear();
-            }
-            if (std::ispunct(ch)) {
-                words.push_back(std::string(1, ch));
-            }
-        } else {
-            word += ch;
-        }
-    }
-    if (!word.empty()) {
-        words.push_back(word);
-    }
-
-    return words;
-}
-
 std::string pigifySentence(std::string &InputSentence) {
     std::vector<std::string> sentenceElements = SplitString(InputSentence);
     std::ostringstream oss;
@@ -101,6 +101,14 @@ std::string pigifySentence(std::string &InputSentence) {
 
 std::string unpigifyWord(const std::string &word) {
     std::string fixedWord = word;
+    int wordLength = word.size();
+
+    // if last 3 characters are 'yay', remove and return word
+    
+
+    // if last 2 characters are 'ay', remove 
+    // iterate backwards, if !isVowel, move to front, if isVowel, return word
+
 
     return word;
 }
