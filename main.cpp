@@ -21,14 +21,19 @@ std::vector<std::string> SplitString(const std::string &str) {
     std::string word;
 
     for (char ch : str) {
-        if (std::isspace(ch) || std::ispunct(ch)) {
+        if (std::isspace(ch)) {
+            // removes additional spaces (i think)
             if (!word.empty()) {
                 words.push_back(word);
                 word.clear();
             }
-            if (std::ispunct(ch)) {
-                words.push_back(std::string(1, ch));
+        words.push_back(std::string(1, ch));
+        } else if (std::ispunct(ch)) {
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
             }
+        words.push_back(std::string(1, ch));
         } else {
             word += ch;
         }
@@ -39,6 +44,8 @@ std::vector<std::string> SplitString(const std::string &str) {
 
     return words;
 }
+
+//-----------------------------------------------------------------------//
 
 std::string pigifyWord(const std::string &word) {
     if (word.empty()) {
@@ -98,6 +105,8 @@ std::string pigifySentence(std::string &InputSentence) {
 
     return oss.str();
 }
+
+//-----------------------------------------------------------------------//
 
 std::string unpigifyWord(const std::string &word) {
     std::string fixedWord = word;
