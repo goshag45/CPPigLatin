@@ -76,7 +76,7 @@ std::string pigifyWord(const std::string &word) {
     }
 
     if (hasUpper) {
-        pigifiedWord[0] = std::toupper(pigifiedWord[0]);
+        pigifiedWord[0] = (char) std::toupper(pigifiedWord[0]);
     }
 
     return pigifiedWord + punctuation;
@@ -101,7 +101,7 @@ std::string pigifySentence(std::string &InputSentence) {
 
 std::string unpigifyWord(const std::string &word) {
     std::string fixedWord = word;
-    int wordLength = word.size();
+    size_t wordLength = word.size();
 
     // if last 3 characters are 'yay', remove and return word
     std::string lastThree = word.substr(wordLength - 3);
