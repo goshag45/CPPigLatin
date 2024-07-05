@@ -16,6 +16,14 @@ bool isVowel(char Character) {
     return strchr(vowels, Character) != nullptr;
 }
 
+std::string getUserInput() {
+    std::string userInput;
+    std::cout << "Please enter string to pigify: ";
+    std::getline(std::cin, userInput);
+    std::cout << "Input collected succesfully" << std::endl;
+    return userInput;
+}
+
 std::vector<std::string> SplitString(const std::string &str) {
     std::vector<std::string> words;
     std::string word;
@@ -45,7 +53,7 @@ std::vector<std::string> SplitString(const std::string &str) {
     return words;
 }
 
-//-----------------------------------------------------------------------//
+//------------------------------------------------------------------------------//
 
 std::string pigifyWord(const std::string &word) {
     if (word.empty()) {
@@ -111,7 +119,7 @@ std::string pigifySentence(std::string &InputSentence) {
     return oss.str();
 }
 
-//-----------------------------------------------------------------------//
+//------------------------------------------------------------------------------//
 
 std::string unpigifyWord(const std::string &word) {
     std::string fixedWord = word;
@@ -145,16 +153,8 @@ std::string unpigifySentence(std::string &InputSentence) {
     return oss.str();
 }
 
-//-----------------------------------------------------------------------//
-std::string getUserInput() {
-    std::string userInput;
-    std::cout << "Please enter string to pigify: ";
-    std::getline(std::cin, userInput);
-    std::cout << "Input collected succesfully" << std::endl;
-    return userInput;
-}
+//------------------------------------------------------------------------------//
 
-// switch statement time
 int main() {
     int switchInput;
 
