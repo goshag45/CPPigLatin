@@ -16,20 +16,16 @@ bool isVowel(char Character) {
     return strchr(vowels, Character) != nullptr;
 }
 
-std::string getUserInput() {
-    std::string userInput;
-    std::cout << "Please enter string to pigify: ";
-    std::getline(std::cin, userInput);
-    std::cout << "Input collected succesfully" << std::endl;
-    return userInput;
-}
-
-// gotta be a better way to do this right?
+// there is a better way!
 std::string getUserInput(int variant) {
     std::string userInput;
-    std::cout << "Please enter a pigged string: ";
+    if (variant == 1) {
+        std::cout << "Please enter string to pigify: ";
+    } else if (variant == 2) {
+        std::cout << "Please enter a pigged string: ";
+    }    
     std::getline(std::cin, userInput);
-    std::cout << "Input Collected successfully" << std::endl;
+    std::cout << "Input collected succesfully" << std::endl;
     return userInput;
 }
 
