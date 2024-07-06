@@ -24,6 +24,15 @@ std::string getUserInput() {
     return userInput;
 }
 
+// gotta be a better way to do this right?
+std::string getUserInput(int variant) {
+    std::string userInput;
+    std::cout << "Please enter a pigged string: ";
+    std::getline(std::cin, userInput);
+    std::cout << "Input Collected successfully" << std::endl;
+    return userInput;
+}
+
 std::vector<std::string> SplitString(const std::string &str) {
     std::vector<std::string> words;
     std::string word;
@@ -174,7 +183,8 @@ int main() {
             break;
         }
         case 2: {
-
+            int variant = 2;
+            std::string userInput = getUserInput(variant);
             break;
         }
     }
