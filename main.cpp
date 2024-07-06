@@ -174,13 +174,12 @@ int main() {
 
     switch(switchInput) {
         case 1: {
-            std::string userInput = getUserInput();
+            std::string userInput = getUserInput(1);
             std::cout << "Pigified: " << pigifySentence(userInput) << std::endl;
             break;
         }
         case 2: {
-            int variant = 2;
-            std::string userInput = getUserInput(variant);
+            std::string userInput = getUserInput(2);
             break;
         }
     }
