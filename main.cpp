@@ -180,6 +180,7 @@ int main() {
         }
         case 2: {
             std::string userInput = getUserInput(2);
+            std::cout << "Un-Pigified: " << unpigifySentence(userInput) << std::endl;
             break;
         }
     }
