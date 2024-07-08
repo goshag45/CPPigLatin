@@ -128,6 +128,10 @@ std::string pigifySentence(std::string &InputSentence) {
 //------------------------------------------------------------------------------//
 
 std::string unpigifyWord(const std::string &word) {
+    if (word.empty()) {
+        return "";
+    }
+
     std::string fixedWord = word;
     size_t wordLength = word.size();
 
@@ -140,7 +144,6 @@ std::string unpigifyWord(const std::string &word) {
     // if last 2 characters are 'ay', remove 
     // iterate backwards, if !isVowel, move to front, if isVowel, return word
 
-
     return fixedWord;
 }
 
@@ -148,11 +151,18 @@ std::string unpigifySentence(std::string &InputSentence) {
     std::vector<std::string> sentenceElements = SplitString(InputSentence);
     std::ostringstream oss;
 
+    bool firstWord = true;
     for (std::string &element : sentenceElements) {
-        if (std::ispunct(element[0])) {
-            oss << element << " ";
+        if (std::isspace(element[0])) {
+            oss << element;
+        } else if (std::ispunct(element[0])) {
+            oss << element;
         } else {
+            if (!firstWord) {
+                oss << " ";
+            }
             oss << unpigifyWord(element);
+            firstWord = false;
         }
     }
 

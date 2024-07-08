@@ -8,8 +8,11 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/George/Documents/_code/Plana",
-      "program": "c:/Users/George/Documents/_code/Plana/build/Debug/outDebug",
+      // yikes i ned to update this depending on which pc im working on- has to be a better way
+      "cwd": "C:/Users/George.Gougliouvatyi/_C++/CPPigLatin",
+      //"cwd": "c:/Users/George/Documents/_code/Plana",
+      "program": "C:/Users/George.Gougliouvatyi/_C++/CPPigLatin/build/Debug/outDebug.exe",
+      //"program": "c:/Users/George/Documents/_code/Plana/build/Debug/outDebug.exe",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
