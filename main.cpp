@@ -8,8 +8,8 @@
 #include <limits>
 
 // TODO
-// investigate possible edge cases
-// MAYBE add decoder as another thing
+// decoder
+// gui?
 
 bool isVowel(char Character) {
     char vowels[] = "aeiouAEIOU";
