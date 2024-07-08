@@ -10,6 +10,7 @@
 // TODO
 // decoder
 // gui?
+// error checking?
 
 bool isVowel(char Character) {
     char vowels[] = "aeiouAEIOU";
@@ -140,7 +141,7 @@ std::string unpigifyWord(const std::string &word) {
     // iterate backwards, if !isVowel, move to front, if isVowel, return word
 
 
-    return word;
+    return fixedWord;
 }
 
 std::string unpigifySentence(std::string &InputSentence) {
