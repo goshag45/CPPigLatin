@@ -196,5 +196,7 @@ int main() {
         }
     }
 
+    // cool workaround to not autoclose when i run in debug window!!
+    std::getchar();
     return 0;
 }
