@@ -61,6 +61,7 @@ std::vector<std::string> SplitString(const std::string &str) {
 
 //------------------------------------------------------------------------------//
 
+//might b worth cleaning this up at some point - least nice function
 std::string pigifyWord(const std::string &word) {
     if (word.empty()) {
         return "";
@@ -70,6 +71,7 @@ std::string pigifyWord(const std::string &word) {
     std::string coreWord = word;
     std::string punctuation = "";
 
+    // check for punctutation 
     while (pos < coreWord.size() && ispunct(coreWord.back())) {
         punctuation = coreWord.back() + punctuation;
         coreWord.pop_back();
