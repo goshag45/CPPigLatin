@@ -139,18 +139,20 @@ std::string unpigifyWord(const std::string &word) {
     if (word.substr(wordLength - 3) == "yay") {
         fixedWord = word.substr(0, wordLength - 3);
     } else if (word.substr(wordLength - 2 ) == "ay") {
+        //remove the ay
+        fixedWord = fixedWord.substr(0, wordLength - 2);
         // can be auto and not size_t
-        for (size_t i = wordLength; i--;) {
-            //remove the ay
-            
+        for (size_t i = fixedWord.size(); i--;) {
             if (isVowel(fixedWord[i])) {
-
+                break;
             }
+            fixedWord = fixedWord[i] + fixedWord.substr(0, fixedWord.size() - 1);
             return fixedWord;
         }
     } else {
         return fixedWord;
     }
+    return fixedWord;
 }
 
 std::string unpigifySentence(std::string &InputSentence) {
