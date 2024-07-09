@@ -137,12 +137,22 @@ std::string unpigifyWord(const std::string &word) {
 
     // if last 3 characters are 'yay', remove and return word
     std::string lastThree = word.substr(wordLength - 3);
+    std::string lastTwo = word.substr(wordLength - 2);
     if (lastThree == "yay") {
         fixedWord = word.substr(0, wordLength - 3);
-    } 
+    } else if (lastTwo == "ay") {
+        // can be auto and not size_t
+        for (size_t i = word.size(); i--;) {
+            
+            return fixedWord;
+        }
+    } else {
+        return fixedWord;
+    }
 
     // if last 2 characters are 'ay', remove 
     // iterate backwards, if !isVowel, move to front, if isVowel, return word
+
 
     return fixedWord;
 }
