@@ -149,9 +149,11 @@ std::string unpigifyWord(const std::string &word) {
         //remove the ay
         fixedWord = unchangedWord.substr(0, wordLength - 2);
         // can be auto and not size_t
-        for (size_t i = fixedWord.size() + 1; i-- > 0;) {
+        size_t finalIndex = fixedWord.size();
+        for (size_t i = fixedWord.size(); i-- > 0;) {
+            std::cout<< i << " ";
             std::cout << "CHARACTER: " << fixedWord[i] << " WORD: " << fixedWord << std::endl;
-            if (isVowel(fixedWord[i])) {
+            if (isVowel(fixedWord[finalIndex])) {
                 break;
             }
             fixedWord = fixedWord.substr(i) + fixedWord.substr(0, i);
