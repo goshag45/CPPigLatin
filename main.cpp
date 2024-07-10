@@ -145,6 +145,8 @@ std::string unpigifyWord(const std::string &word) {
     // if last 3 characters are 'yay', remove and return word
     if (unchangedWord.substr(wordLength - 3) == "yay") {
         fixedWord = unchangedWord.substr(0, wordLength - 3);
+    // NONE OF THIS WILL WORK, PROBABLY NEED DICTIONARY OR AP TO FIND WORDS, MIGHT BE ABLE TO 
+    // IMPLEMENT A QUICK ALGO??
     } else if (unchangedWord.substr(wordLength - 2 ) == "ay") {
         //remove the ay
         fixedWord = unchangedWord.substr(0, wordLength - 2);
