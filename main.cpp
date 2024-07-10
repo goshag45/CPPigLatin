@@ -69,6 +69,7 @@ std::string pigifyWord(const std::string &word) {
 
     size_t pos = 0;
     std::string coreWord = word;
+    std::string pigifiedWord;
     std::string punctuation = "";
 
     // check for punctutation 
@@ -83,7 +84,6 @@ std::string pigifyWord(const std::string &word) {
     std::transform(coreWord.begin(), coreWord.end(), coreWord.begin(), [](unsigned char c)
                    { return std::tolower(c); });
 
-    std::string pigifiedWord;
     if (isVowel(coreWord[0])) {
         pigifiedWord = coreWord + "yay";
     } else {
@@ -143,20 +143,21 @@ std::string unpigifyWord(const std::string &word) {
                    { return std::tolower(c); });
 
     // if last 3 characters are 'yay', remove and return word
-    if (word.substr(wordLength - 3) == "yay") {
-        fixedWord = word.substr(0, wordLength - 3);
-    } else if (word.substr(wordLength - 2 ) == "ay") {
+    if (unchangedWord.substr(wordLength - 3) == "yay") {
+        fixedWord = unchangedWord.substr(0, wordLength - 3);
+    } else if (unchangedWord.substr(wordLength - 2 ) == "ay") {
         //remove the ay
-        fixedWord = fixedWord.substr(0, wordLength - 2);
+        fixedWord = unchangedWord.substr(0, wordLength - 2);
         // can be auto and not size_t
-        for (size_t i = fixedWord.size(); i--;) {
+        for (size_t i = fixedWord.size() + 1; i-- > 0;) {
+            std::cout << "CHARACTER: " << fixedWord[i] << " WORD: " << fixedWord << std::endl;
             if (isVowel(fixedWord[i])) {
                 break;
             }
-            fixedWord = fixedWord[i] + fixedWord.substr(0, fixedWord.size() - 1);
+            fixedWord = fixedWord.substr(i) + fixedWord.substr(0, i);
         }
     }
-
+    
     if (hasUpper) {
         fixedWord[0] = (char) std::toupper(fixedWord[0]);
     }
@@ -214,6 +215,6 @@ int main() {
     }
 
     // cool workaround to not autoclose when i run in debug window!!
-    std::getchar();
+    //std::getchar();
     return 0;
 }
