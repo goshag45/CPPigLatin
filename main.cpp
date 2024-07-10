@@ -135,7 +135,12 @@ std::string unpigifyWord(const std::string &word) {
     }
 
     std::string fixedWord = word;
+    std::string unchangedWord = word;
     size_t wordLength = word.size();
+
+    bool hasUpper = std::isupper(unchangedWord[0]);
+    std::transform(unchangedWord.begin(), unchangedWord.end(), unchangedWord.begin(), [](unsigned char c)
+                   { return std::tolower(c); });
 
     // if last 3 characters are 'yay', remove and return word
     if (word.substr(wordLength - 3) == "yay") {
@@ -149,11 +154,13 @@ std::string unpigifyWord(const std::string &word) {
                 break;
             }
             fixedWord = fixedWord[i] + fixedWord.substr(0, fixedWord.size() - 1);
-            return fixedWord;
         }
-    } else {
-        return fixedWord;
     }
+
+    if (hasUpper) {
+        fixedWord[0] = (char) std::toupper(fixedWord[0]);
+    }
+
     return fixedWord;
 }
 
