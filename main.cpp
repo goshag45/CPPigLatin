@@ -11,6 +11,9 @@
 // decoder
 // gui?
 // error checking?
+// I WILL NEED TO CREATE A DICTIONARY (10K?) MOST COMMON
+// ENGLISH WORDS WITH ASSOCIATED PIGLATIN TRANSLATION
+// DB?
 
 bool isVowel(char Character) {
     char vowels[] = "aeiouAEIOU";
