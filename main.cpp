@@ -13,7 +13,8 @@
 // error checking?
 // I WILL NEED TO CREATE A DICTIONARY (10K?) MOST COMMON
 // ENGLISH WORDS WITH ASSOCIATED PIGLATIN TRANSLATION
-// DB?
+// header file dictionary is the way to go im thinking
+// have to write program to parse txt of words
 
 bool isVowel(char Character) {
     char vowels[] = "aeiouAEIOU";
