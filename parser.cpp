@@ -1,5 +1,7 @@
 #include <iostream>
 #include <stdio.h>
+#include <fstream> 
+#include <string>
 
 // setup text file as json kinda?
 // go through entire list
@@ -11,6 +13,14 @@ std::string Pigify(const std::string &word) {
     std::string pigified = word;
 
     return word;
+}
+
+void ParseFile(std::string fileName) {
+    std::ifstream file(fileName);
+    std::string word;
+    while (std::getline(fileName, word)) {
+
+    }
 }
 
 int main() {
