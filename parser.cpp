@@ -23,7 +23,17 @@ void ParseFile(std::string fileName) {
     }
 }
 
+std::string getUserInput() {
+    std::string targetFile;
+    std::cout << "Please enter name of file: ";
+    std::cin >> targetFile;
+    return targetFile;
+}
+
 int main() {
+    std::string targetFile;
+    targetFile = getUserInput();
+    ParseFile(targetFile);
 
     return 0;
 }
