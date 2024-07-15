@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stdio.h>
 #include <fstream> 
 #include <string>
 
@@ -22,6 +21,8 @@ void ParseFile(std::string& fileName) {
         while (std::getline(file, word)) {
             std::cout << word << std::endl;
         }
+    } else {
+        std::cerr << "Could not open file!" << std::endl;
     }
 }
 
