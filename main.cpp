@@ -134,63 +134,11 @@ std::string pigifySentence(std::string &InputSentence) {
 //------------------------------------------------------------------------------//
 
 std::string unpigifyWord(const std::string &word) {
-    if (word.empty()) {
-        return "";
-    }
-
-    std::string fixedWord = word;
-    std::string unchangedWord = word;
-    size_t wordLength = word.size();
-
-    bool hasUpper = std::isupper(unchangedWord[0]);
-    std::transform(unchangedWord.begin(), unchangedWord.end(), unchangedWord.begin(), [](unsigned char c)
-                   { return std::tolower(c); });
-
-    // if last 3 characters are 'yay', remove and return word
-    if (unchangedWord.substr(wordLength - 3) == "yay") {
-        fixedWord = unchangedWord.substr(0, wordLength - 3);
-    // NONE OF THIS WILL WORK, PROBABLY NEED DICTIONARY OR AP TO FIND WORDS, MIGHT BE ABLE TO 
-    // IMPLEMENT A QUICK ALGO??
-    } else if (unchangedWord.substr(wordLength - 2 ) == "ay") {
-        //remove the ay
-        fixedWord = unchangedWord.substr(0, wordLength - 2);
-        // can be auto and not size_t
-        size_t finalIndex = fixedWord.size() - 1;
-        for (size_t i = 0; i < finalIndex; i++) {
-            if (isVowel(fixedWord[finalIndex])) {
-                break;
-            }
-            fixedWord = fixedWord.substr(finalIndex - 1) + fixedWord.substr(0, finalIndex - 1);
-        }
-    }
-    
-    if (hasUpper) {
-        fixedWord[0] = (char) std::toupper(fixedWord[0]);
-    }
-
-    return fixedWord;
+    // TODO, might not even need
 }
 
 std::string unpigifySentence(std::string &InputSentence) {
-    std::vector<std::string> sentenceElements = SplitString(InputSentence);
-    std::ostringstream oss;
-
-    bool firstWord = true;
-    for (std::string &element : sentenceElements) {
-        if (std::isspace(element[0])) {
-            oss << element;
-        } else if (std::ispunct(element[0])) {
-            oss << element;
-        } else {
-            if (!firstWord) {
-                oss << " ";
-            }
-            oss << unpigifyWord(element);
-            firstWord = false;
-        }
-    }
-
-    return oss.str();
+    // TODO
 }
 
 //------------------------------------------------------------------------------//
