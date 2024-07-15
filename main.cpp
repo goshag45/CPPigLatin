@@ -7,10 +7,6 @@
 #include <algorithm>
 #include <limits>
 
-// TODO
-// decoder
-// gui?
-// error checking?
 // I WILL NEED TO CREATE A DICTIONARY (10K?) MOST COMMON
 // ENGLISH WORDS WITH ASSOCIATED PIGLATIN TRANSLATION
 // header file dictionary is the way to go im thinking
