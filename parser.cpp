@@ -15,11 +15,13 @@ std::string Pigify(const std::string &word) {
     return word;
 }
 
-void ParseFile(std::string fileName) {
+void ParseFile(std::string& fileName) {
     std::ifstream file(fileName);
     std::string word;
-    while (std::getline(fileName, word)) {
-
+    if (file.is_open()) {    
+        while (std::getline(file, word)) {
+            std::cout << word << std::endl;
+        }
     }
 }
 
