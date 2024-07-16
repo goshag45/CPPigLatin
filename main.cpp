@@ -25,7 +25,9 @@ std::string getUserInput(int variant) {
         std::cout << "Please enter string to pigify: ";
     } else if (variant == 2) {
         std::cout << "Please enter a pigged string: ";
-    }    
+    } else if (variant == 3) {
+        std::cout << "Please enter filename: ";
+    }
     std::getline(std::cin, userInput);
     std::cout << "Input collected succesfully" << std::endl;
     return userInput;
@@ -148,6 +150,7 @@ int main() {
     std::cout << "PIG LATIN BOX" << std::endl;
     std::cout << "1. Pigify" << std::endl;
     std::cout << "2. Unpigify" << std::endl;
+    std::cout << "3. Generate Pigctionary" << std::endl;
     std::cout << "Please enter your choice: ";
     std::cin >> switchInput;
 
@@ -163,6 +166,12 @@ int main() {
         case 2: {
             std::string userInput = getUserInput(2);
             std::cout << "Un-Pigified: " << unpigifySentence(userInput) << std::endl;
+            break;
+        }
+        case 3: {
+            std::string userInput = getUserInput(3);
+            GenerateDictionary(userInput);
+            std::cout << "Dictionary Generated!" << std::endl;
             break;
         }
     }
