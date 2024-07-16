@@ -6,12 +6,8 @@
 #include <algorithm>
 #include <limits>
 
-#include "functions.h"
-
-// I WILL NEED TO CREATE A DICTIONARY (10K?) MOST COMMON
-// ENGLISH WORDS WITH ASSOCIATED PIGLATIN TRANSLATION
-// header file dictionary is the way to go im thinking
-// have to write program to parse txt of words
+#include "parser.h"
+#include "unpigify.h"
 
 bool isVowel(char Character) {
     char vowels[] = "aeiouAEIOU";
@@ -128,18 +124,6 @@ std::string pigifySentence(std::string &InputSentence) {
     }
 
     return oss.str();
-}
-
-//------------------------------------------------------------------------------//
-
-std::string unpigifyWord(const std::string &word) {
-    // TODO, might not even need
-    return word;
-}
-
-std::string unpigifySentence(std::string &InputSentence) {
-    // TODO
-    return InputSentence;
 }
 
 //------------------------------------------------------------------------------//
