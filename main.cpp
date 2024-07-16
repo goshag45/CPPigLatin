@@ -1,11 +1,11 @@
 #include <iostream>
-#include <stdio.h>
-#include <string.h>
 #include <algorithm>
 #include <vector>
 #include <sstream>
 #include <algorithm>
 #include <limits>
+
+#include "functions.h"
 
 // I WILL NEED TO CREATE A DICTIONARY (10K?) MOST COMMON
 // ENGLISH WORDS WITH ASSOCIATED PIGLATIN TRANSLATION
