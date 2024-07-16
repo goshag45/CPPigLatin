@@ -9,6 +9,7 @@
                 "-g",
                 "${workspaceFolder}/main.cpp",
                 "${workspaceFolder}/parser.cpp",
+                "${workspaceFolder}/unpigify.cpp",
                 "-o",
                 "${workspaceFolder}/build/Debug/outDebug.exe"
             ],

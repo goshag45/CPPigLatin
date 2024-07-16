@@ -2,6 +2,7 @@
 #include <fstream> 
 #include <string>
 #include <vector>
+#include <map>
 
 #include "main.h"
 
@@ -28,5 +29,12 @@ std::vector<std::string> ParseFile(std::string& fileName) {
 }
 
 void GenerateDictionary(const std::string &fileName) {
-    
+    std::vector<std::string> pigifiedVector;
+    std::map<std::string, std::string> dictionary;
+    std::string file = fileName;
+
+    pigifiedVector = ParseFile(file);
+    for (std::string word : pigifiedVector) {
+        dictionary.insert(pigifyWord(word), word);
+    }
 }
