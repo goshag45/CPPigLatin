@@ -31,10 +31,10 @@ void ParseFile(std::string& fileName) {
     }
 }
 
-int main() {
-    std::string targetFile;
-    targetFile = getUserInput();
-    ParseFile(targetFile);
+// int main() {
+//     std::string targetFile;
+//     targetFile = getUserInput();
+//     ParseFile(targetFile);
 
-    return 0;
-}
+//     return 0;
+// }

@@ -2,15 +2,15 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: gcc.exe build active file",
-            "command": "C:/msys64/mingw64/bin/gcc.exe",
+            "label": "C/C++: g++.exe build project",
+            "command": "C:/msys64/mingw64/bin/g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                "${workspaceFolder}/main.cpp",
+                "${workspaceFolder}/parser.cpp",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                ""
+                "${workspaceFolder}/build/Debug/outDebug.exe"
             ],
             "options": {
                 "cwd": "C:/msys64/mingw64/bin"

@@ -1,6 +1,7 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
-#include <iostream>
+
+#include <string>
 
 std::string pigifyWord(const std::string &word);
 
