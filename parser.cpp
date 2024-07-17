@@ -50,9 +50,9 @@ void WriteToJSON(string outputFileName, std::map<string, string> dictionary) {
 
     if (file.is_open()) {
         file << "{" << "\n";
-        for (auto pair : dictionary) {
-            file << "\"" << pair.first << "\"" << ":" << " \"" <<pair.second << "\"";
-            if (std::next(pair) != dictionary.end()) {
+        for (auto it = dictionary.begin(); it != dictionary.end(); ++it) {
+            file << "\"" << it->first << "\"" << ":" << " \"" << it->second << "\"";
+            if (std::next(it) != dictionary.end()) {
                 file << ",";
             }
         }
