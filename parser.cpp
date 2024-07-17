@@ -55,6 +55,7 @@ void WriteToJSON(string outputFileName, std::map<string, string> dictionary) {
             if (std::next(it) != dictionary.end()) {
                 file << ",";
             }
+            file << "\n";
         }
         file << "}";
         file.close();
