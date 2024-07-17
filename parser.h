@@ -3,8 +3,10 @@
 
 #include <string>
 #include <vector>
+#include <map>
 
-void GenerateDictionary(const std::string &fileName);
 std::vector<std::string> ParseFile(std::string& fileName);
+std::map<std::string, std::string> GenerateDictionary(std::string fileName);
+void WriteToJSON(std::string outputFileName, std::map<std::string, std::string> dictionary);
 
 #endif

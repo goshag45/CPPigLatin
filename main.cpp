@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <vector>
 #include <sstream>
-#include <algorithm>
 #include <limits>
 
 #include "parser.h"
@@ -26,8 +25,11 @@ string getUserInput(int variant) {
     } else if (variant == 2) {
         cout << "Please enter a pigged string: ";
     } else if (variant == 3) {
-        cout << "Please enter filename: ";
+        cout << "Please enter filename to JSONify: ";
+    } else if (variant == 4) {
+        cout << "Please enter output filename: ";
     }
+    std::cout.flush();
     std::getline(std::cin, userInput);
     cout << "Input collected succesfully" << endl;
     return userInput;
@@ -141,9 +143,9 @@ int main() {
     cout << "3. Generate Pigctionary" << endl;
     cout << "Please enter your choice: ";
     std::cin >> switchInput;
-
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear input buffer
     // clearing input buffer 
-    while ((getchar()) != '\n');
+    //while ((getchar()) != '\n');
 
     switch(switchInput) {
         case 1: {
@@ -157,8 +159,10 @@ int main() {
             break;
         }
         case 3: {
-            string userInput = getUserInput(3);
-            GenerateDictionary(userInput);
+            string targetFileName = getUserInput(3);
+            string outputFileName = getUserInput(4);
+            std::map<string, string> dictionary = GenerateDictionary(targetFileName);
+            WriteToJSON(outputFileName, dictionary);
             cout << "Dictionary Generated!" << endl;
             break;
         }

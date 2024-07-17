@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <iterator>
 
 #include "main.h"
 
@@ -31,12 +32,11 @@ vector<string> ParseFile(string& fileName) {
     return outputVector;
 }
 
-std::map<string, string> GenerateDictionary(const string &fileName) {
+std::map<string, string> GenerateDictionary(string fileName) {
     vector<string> pigifiedVector;
     std::map<string, string> dictionary;
-    string targetFile = fileName;
 
-    pigifiedVector = ParseFile(targetFile);
+    pigifiedVector = ParseFile(fileName);
     for (const string &word : pigifiedVector) {
         string pigifiedWord = pigifyWord(word);
         dictionary.insert(std::make_pair(pigifiedWord, word));
@@ -45,11 +45,19 @@ std::map<string, string> GenerateDictionary(const string &fileName) {
     return dictionary;
 }
 
-void WriteToJSON(const string &outputFileName, std::map<string, string> dictionary) {
+void WriteToJSON(string outputFileName, std::map<string, string> dictionary) {
     std::ofstream file(outputFileName);
 
     if (file.is_open()) {
-
+        file << "{" << "\n";
+        for (auto pair : dictionary) {
+            file << "\"" << pair.first << "\"" << ":" << " \"" <<pair.second << "\"";
+            if (std::next(pair) != dictionary.end()) {
+                file << ",";
+            }
+        }
+        file << "}";
+        file.close();
     } else {
         std::cerr << "Unable to create/open file: " << outputFileName << std::endl;
     }
