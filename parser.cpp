@@ -23,7 +23,7 @@ vector<string> ParseFile(string& fileName) {
         while (std::getline(file, word)) {
             // implement functionality here
             // need to push each word to vector!
-            outputVector.push_back(pigifyWord(word));
+            outputVector.push_back(word);
         }
     } else {
         std::cerr << "Could not open file!" << std::endl;
@@ -31,15 +31,26 @@ vector<string> ParseFile(string& fileName) {
     return outputVector;
 }
 
-void GenerateDictionary(const string &fileName) {
+std::map<string, string> GenerateDictionary(const string &fileName) {
     vector<string> pigifiedVector;
     std::map<string, string> dictionary;
-    string file = fileName;
+    string targetFile = fileName;
 
-    pigifiedVector = ParseFile(file);
-    for (string word : pigifiedVector) {
-        dictionary.insert(pigifyWord(word), word);
+    pigifiedVector = ParseFile(targetFile);
+    for (const string &word : pigifiedVector) {
+        string pigifiedWord = pigifyWord(word);
+        dictionary.insert(std::make_pair(pigifiedWord, word));
     }
 
+    return dictionary;
+}
 
+void WriteToJSON(const string &outputFileName, std::map<string, string> dictionary) {
+    std::ofstream file(outputFileName);
+
+    if (file.is_open()) {
+
+    } else {
+        std::cerr << "Unable to create/open file: " << outputFileName << std::endl;
+    }
 }
