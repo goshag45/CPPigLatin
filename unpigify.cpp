@@ -1,11 +1,13 @@
 #include <string>
 
-std::string unpigifyWord(const std::string &word) {
+using std::string;
+
+string unpigifyWord(const string &word) {
     // TODO, might not even need
     return word;
 }
 
-std::string unpigifySentence(std::string &InputSentence) {
+string unpigifySentence(string &InputSentence) {
     // TODO
     return InputSentence;
 }

@@ -9,29 +9,33 @@
 #include "parser.h"
 #include "unpigify.h"
 
+using std::string;
+using std::cout;
+using std::endl;
+
 bool isVowel(char Character) {
     char vowels[] = "aeiouAEIOU";
     return strchr(vowels, Character) != nullptr;
 }
 
 // there is a better way!
-std::string getUserInput(int variant) {
-    std::string userInput;
+string getUserInput(int variant) {
+    string userInput;
     if (variant == 1) {
-        std::cout << "Please enter string to pigify: ";
+        cout << "Please enter string to pigify: ";
     } else if (variant == 2) {
-        std::cout << "Please enter a pigged string: ";
+        cout << "Please enter a pigged string: ";
     } else if (variant == 3) {
-        std::cout << "Please enter filename: ";
+        cout << "Please enter filename: ";
     }
     std::getline(std::cin, userInput);
-    std::cout << "Input collected succesfully" << std::endl;
+    cout << "Input collected succesfully" << endl;
     return userInput;
 }
 
-std::vector<std::string> SplitString(const std::string &str) {
-    std::vector<std::string> words;
-    std::string word;
+std::vector<string> SplitString(const string &str) {
+    std::vector<string> words;
+    string word;
 
     for (char ch : str) {
         if (std::isspace(ch)) {
@@ -40,13 +44,13 @@ std::vector<std::string> SplitString(const std::string &str) {
                 words.push_back(word);
                 word.clear();
             }
-        words.push_back(std::string(1, ch));
+        words.push_back(string(1, ch));
         } else if (std::ispunct(ch)) {
             if (!word.empty()) {
                 words.push_back(word);
                 word.clear();
             }
-        words.push_back(std::string(1, ch));
+        words.push_back(string(1, ch));
         } else {
             word += ch;
         }
@@ -61,15 +65,15 @@ std::vector<std::string> SplitString(const std::string &str) {
 //------------------------------------------------------------------------------//
 
 //might b worth cleaning this up at some point - least nice function
-std::string pigifyWord(const std::string &word) {
+string pigifyWord(const string &word) {
     if (word.empty()) {
         return "";
     }
 
     size_t pos = 0;
-    std::string coreWord = word;
-    std::string pigifiedWord;
-    std::string punctuation = "";
+    string coreWord = word;
+    string pigifiedWord;
+    string punctuation = "";
 
     // check for punctutation 
     while (pos < coreWord.size() && ispunct(coreWord.back())) {
@@ -104,12 +108,12 @@ std::string pigifyWord(const std::string &word) {
     return pigifiedWord + punctuation;
 }
 
-std::string pigifySentence(std::string &InputSentence) {
-    std::vector<std::string> sentenceElements = SplitString(InputSentence);
+string pigifySentence(string &InputSentence) {
+    std::vector<string> sentenceElements = SplitString(InputSentence);
     std::ostringstream oss;
     bool firstWord = true;
 
-    for (std::string &element : sentenceElements) {
+    for (string &element : sentenceElements) {
         if (std::isspace(element[0])) {
             oss << element;
         } else if (std::ispunct(element[0])) {
@@ -131,11 +135,11 @@ std::string pigifySentence(std::string &InputSentence) {
 int main() {
     int switchInput;
 
-    std::cout << "PIG LATIN BOX" << std::endl;
-    std::cout << "1. Pigify" << std::endl;
-    std::cout << "2. Unpigify" << std::endl;
-    std::cout << "3. Generate Pigctionary" << std::endl;
-    std::cout << "Please enter your choice: ";
+    cout << "PIG LATIN BOX" << endl;
+    cout << "1. Pigify" << endl;
+    cout << "2. Unpigify" << endl;
+    cout << "3. Generate Pigctionary" << endl;
+    cout << "Please enter your choice: ";
     std::cin >> switchInput;
 
     // clearing input buffer 
@@ -143,19 +147,19 @@ int main() {
 
     switch(switchInput) {
         case 1: {
-            std::string userInput = getUserInput(1);
-            std::cout << "Pigified: " << pigifySentence(userInput) << std::endl;
+            string userInput = getUserInput(1);
+            cout << "Pigified: " << pigifySentence(userInput) << endl;
             break;
         }
         case 2: {
-            std::string userInput = getUserInput(2);
-            std::cout << "Un-Pigified: " << unpigifySentence(userInput) << std::endl;
+            string userInput = getUserInput(2);
+            cout << "Un-Pigified: " << unpigifySentence(userInput) << endl;
             break;
         }
         case 3: {
-            std::string userInput = getUserInput(3);
+            string userInput = getUserInput(3);
             GenerateDictionary(userInput);
-            std::cout << "Dictionary Generated!" << std::endl;
+            cout << "Dictionary Generated!" << endl;
             break;
         }
     }

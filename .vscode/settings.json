@@ -103,6 +103,7 @@
     "typeinfo": "cpp",
     "ctime": "cpp",
     "sstream": "cpp",
-    "fstream": "cpp"
+    "fstream": "cpp",
+    "map": "cpp"
   }
 }

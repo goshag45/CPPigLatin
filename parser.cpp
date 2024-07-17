@@ -6,16 +6,19 @@
 
 #include "main.h"
 
+using std::string;
+using std::vector;
+
 // setup text file as json kinda?
 // go through entire list
 // pigify each word 
 // write to json file as pigifiedword:originalword
 // will have to write a json parses OH WELL
 
-std::vector<std::string> ParseFile(std::string& fileName) {
+vector<string> ParseFile(string& fileName) {
     std::ifstream file(fileName);
-    std::string word;
-    std::vector<std::string> outputVector;
+    string word;
+    vector<string> outputVector;
     if (file.is_open()) {    
         while (std::getline(file, word)) {
             // implement functionality here
@@ -28,13 +31,15 @@ std::vector<std::string> ParseFile(std::string& fileName) {
     return outputVector;
 }
 
-void GenerateDictionary(const std::string &fileName) {
-    std::vector<std::string> pigifiedVector;
-    std::map<std::string, std::string> dictionary;
-    std::string file = fileName;
+void GenerateDictionary(const string &fileName) {
+    vector<string> pigifiedVector;
+    std::map<string, string> dictionary;
+    string file = fileName;
 
     pigifiedVector = ParseFile(file);
-    for (std::string word : pigifiedVector) {
+    for (string word : pigifiedVector) {
         dictionary.insert(pigifyWord(word), word);
     }
+
+
 }
