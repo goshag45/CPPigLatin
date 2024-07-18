@@ -175,11 +175,12 @@ string pigifySentence(string &InputSentence)
 int main()
 {
     bool isRunning = true;
+    std::map<string, string> dictionary;
 
     while (isRunning)
     {
         int switchInput;
-
+        cout << "-----------------------------------------" << endl;
         cout << "PIG LATIN BOX" << endl;
         cout << "1. Pigify" << endl;
         cout << "2. Generate Pigctionary" << endl;
@@ -189,37 +190,39 @@ int main()
         std::cin >> switchInput;
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear input buffer
 
-        std::map<string, string> dictionary;
-
         switch (switchInput)
         {
-        case 1:
-        {
-            string userInput = getUserInput(1);
-            cout << "Pigified: " << pigifySentence(userInput) << endl;
-            break;
-        }
-        case 2:
-        {
-            string targetFileName = getUserInput(2);
-            string outputFileName = getUserInput(3);
-            dictionary = GenerateDictionary(targetFileName);
-            WriteToJSON(outputFileName, dictionary);
-            cout << "Dictionary Generated!" << endl;
-            break;
-        }
-        case 3:
-        {
-            string userInput = getUserInput(4);
-            cout << "Un-Pigified: " << unpigifySentence(userInput, dictionary) << endl;
-            break;
-        }
-        case 4:
-        {
-            cout << "Thank you for using!";
-            isRunning = false;
-            break;
-        }
+            case 1:
+            {
+                string userInput = getUserInput(1);
+                cout << "Pigified: " << pigifySentence(userInput) << endl;
+                break;
+            }
+            case 2:
+            {
+                string targetFileName = getUserInput(2);
+                string outputFileName = getUserInput(3);
+                dictionary = GenerateDictionary(targetFileName);
+                WriteToJSON(outputFileName, dictionary);
+                cout << "Dictionary Generated!" << endl;
+                break;
+            }
+            case 3:
+            {
+                string userInput = getUserInput(4);
+                cout << "Un-Pigified: " << unpigifySentence(userInput, dictionary) << endl;
+                break;
+            }
+            case 4:
+            {
+                cout << "Thank you for using!" << endl;
+                isRunning = false;
+                break;
+            }
+            default: {
+                cout << "Invalid choice!" << endl;
+                break;
+            }
         }
     }
 
