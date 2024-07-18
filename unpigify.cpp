@@ -16,12 +16,3 @@ string unpigifySentence(string &InputSentence, std::map<string, string> dictiona
     // TODO
     return InputSentence;
 }
-
-
-// std::ifstream file(filename);
-
-// if (file.is_open()) {
-    
-// } else {
-//     std::cerr << "Unable to open file: " << filename << std::endl;
-// }

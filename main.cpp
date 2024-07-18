@@ -169,8 +169,11 @@ int main() {
             }
             case 3: {
                 string userInput = getUserInput(4);
-                cout << "Un-Pigified: " << unpigifySentence(userInput, dictionary)
-                     << endl;
+                if (dictionary.empty()) {
+                    cout << "Please create a dictionary first!" << endl;
+                    break;
+                }
+                cout << "Un-Pigified: " << unpigifySentence(userInput, dictionary) << endl;
                 break;
             }
             case 4: {
