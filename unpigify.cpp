@@ -11,7 +11,7 @@ string unpigifyWord(const string &word) {
     return word;
 }
 
-string unpigifySentence(string &InputSentence, string &filename) {
+string unpigifySentence(string &InputSentence, std::map<string, string> dictionary) {
 
     // TODO
     return InputSentence;
