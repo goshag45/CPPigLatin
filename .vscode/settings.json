@@ -55,7 +55,7 @@
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
-  "C_Cpp.clang_format_style": "Visual Studio",
+  "C_Cpp.clang_format_style": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}",
   "files.associations": {
     "array": "cpp",
     "atomic": "cpp",
@@ -105,5 +105,8 @@
     "sstream": "cpp",
     "fstream": "cpp",
     "map": "cpp"
-  }
+  },
+  "lldb.showDisassembly": "auto",
+  "lldb.dereferencePointers": true,
+  "lldb.consoleMode": "commands"
 }
