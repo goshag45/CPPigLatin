@@ -1,13 +1,27 @@
 #include <string>
+#include <fstream>
+#include <iostream>
+#include <map>
 
 using std::string;
 
 string unpigifyWord(const string &word) {
-    // TODO, might not even need
+    std::map<string, string> dictionary;
+    // TODO
     return word;
 }
 
-string unpigifySentence(string &InputSentence) {
+string unpigifySentence(string &InputSentence, string &filename) {
+
     // TODO
     return InputSentence;
 }
+
+
+// std::ifstream file(filename);
+
+// if (file.is_open()) {
+    
+// } else {
+//     std::cerr << "Unable to open file: " << filename << std::endl;
+// }

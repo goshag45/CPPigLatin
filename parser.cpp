@@ -22,8 +22,6 @@ vector<string> ParseFile(string& fileName) {
     vector<string> outputVector;
     if (file.is_open()) {    
         while (std::getline(file, word)) {
-            // implement functionality here
-            // need to push each word to vector!
             outputVector.push_back(word);
         }
     } else {
