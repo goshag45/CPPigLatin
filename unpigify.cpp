@@ -1,12 +1,11 @@
 #include <string>
-#include <fstream>
 #include <iostream>
 #include <map>
-
-#include <algorithm>
-#include <limits>
-#include <sstream>
+#include <algorithm> // for std::transform
 #include <vector>
+#include <sstream>
+
+#include "main.h"
 
 using std::string;
 
@@ -33,7 +32,23 @@ string unpigifyWord(const string &word, std::map<string, string> dictionary) {
 }
 
 string unpigifySentence(string &InputSentence, std::map<string, string> dictionary) {
+    std::vector<string> sentenceElements = SplitString(InputSentence);
+    std::ostringstream oss;
+    bool firstWord = true;
 
-    // TODO
-    return InputSentence;
+    for (string &element : sentenceElements) {
+        if (std::isspace(element[0])) {
+            oss << element;
+        } else if (std::ispunct(element[0])) {
+            oss << element;
+        } else {
+            if (!firstWord) {
+                oss << " ";
+            }
+            oss << unpigifyWord(element, dictionary);
+            firstWord = false;
+        }
+    }
+
+    return oss.str();
 }

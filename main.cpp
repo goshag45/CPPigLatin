@@ -75,14 +75,7 @@ string pigifyWord(const string &word) {
     size_t pos = 0;
     string coreWord = word;
     string pigifiedWord;
-    // string punctuation = "";
-
-    // is this even needed?
-    // check for punctutation
-    // while (pos < coreWord.size() && ispunct(coreWord.back())) {
-    //     punctuation = coreWord.back() + punctuation;
-    //     coreWord.pop_back();
-    // }
+    
     // check if first ch is uppercase and remember
     bool hasUpper = std::isupper(coreWord[0]);
 
@@ -109,7 +102,6 @@ string pigifyWord(const string &word) {
         pigifiedWord[0] = (char)std::toupper(pigifiedWord[0]);
     }
 
-    //return pigifiedWord + punctuation;
     return pigifiedWord;
 }
 
