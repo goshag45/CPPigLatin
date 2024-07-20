@@ -18,6 +18,8 @@ string unpigifyWord(const string &word, std::map<string, string> dictionary) {
     std::transform(pigifiedWord.begin(), pigifiedWord.end(), pigifiedWord.begin(),
                    [](unsigned char c) { return std::tolower(c); });
 
+    // this is so inefficient lmao 
+    // fix this dawg
     for (it = dictionary.begin(); it != dictionary.end(); ++it) {
         if (word == it->first) {
             return it->second;
