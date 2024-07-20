@@ -75,9 +75,18 @@ string pigifyWord(const string &word) {
     size_t pos = 0;
     string coreWord = word;
     string pigifiedWord;
-    
-    // check if first ch is uppercase and remember
-    bool hasUpper = std::isupper(coreWord[0]);
+
+    std::vector<int> capitalisedIndexes;
+    bool hasUpper = false;    
+    int capitalisedIndex;
+
+    for (char c : coreWord) {
+        if (std::isupper(c)) {
+            hasUpper = true;
+            capitalisedIndex = coreWord.find(c);
+            capitalisedIndexes.push_back(capitalisedIndex);
+        }
+    }
 
     // this is cool
     // https://stackoverflow.com/questions/313970/how-to-convert-an-instance-of-stdstring-to-lower-case
@@ -98,10 +107,11 @@ string pigifyWord(const string &word) {
         }
     }
 
-    if (hasUpper) {
-        pigifiedWord[0] = (char)std::toupper(pigifiedWord[0]);
-    }
+    for (int i : capitalisedIndexes) {
+        pigifiedWord[i] = (char)std::toupper(pigifiedWord[i]);
+    }    
 
+    capitalisedIndexes.clear();
     return pigifiedWord;
 }
 
