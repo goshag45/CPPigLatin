@@ -127,9 +127,6 @@ string pigifySentence(string &InputSentence) {
         } else if (std::ispunct(element[0])) {
             oss << element;
         } else {
-            if (!firstWord) {
-                oss << " ";
-            }
             oss << pigifyWord(element);
             firstWord = false;
         }
