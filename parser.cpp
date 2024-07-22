@@ -62,10 +62,9 @@ void WriteToJSON(string outputFileName, std::map<string, string> dictionary) {
     }
 }
 
-// IF !READFROMJSON (NAME DICTIONARY?) PLEASE GENERATE PIGCTIONARY
-std::map<string, string> ReadFromJSON(string fileName) {
+vector<string> DecodeJSON(string fileName) {
     std::ofstream file(fileName);
-    std::map<string, string> dictionary;
+    vector<string> outputVector;
 
     if (file.is_open()) {
 
@@ -73,6 +72,16 @@ std::map<string, string> ReadFromJSON(string fileName) {
     } else {
         std::cerr << "Unable to create/open file: " << fileName << std::endl;
     }
+
+    return outputVector;
+}
+
+// IF !READFROMJSON (NAME DICTIONARY?) PLEASE GENERATE PIGCTIONARY
+std::map<string, string> ReadFromJSON(string fileName) {
+    std::map<string, string> dictionary;
+
+    DecodeJSON(fileName);
+
 
     return dictionary;
 }
