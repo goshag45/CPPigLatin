@@ -5,6 +5,10 @@
 #include <sstream>
 #include <vector>
 
+#include <chrono>
+using std::chrono::high_resolution_clock;
+using std::chrono::duration;
+
 #include "parser.h"
 #include "unpigify.h"
 
@@ -168,12 +172,16 @@ int main() {
                 break;
             }
             case 3: {
-                string userInput = getUserInput(4);
                 if (dictionary.empty()) {
                     cout << "Please create a dictionary first!" << endl;
                     break;
                 }
+                string userInput = getUserInput(4);
+                auto t1 = high_resolution_clock::now();
                 cout << "Un-Pigified: " << unpigifySentence(userInput, dictionary) << endl;
+                auto t2 = high_resolution_clock::now();
+                duration<double, std::milli> ms_double = t2 - t1;
+                cout << "Time that took: " << ms_double.count() << "ms"<< endl;
                 break;
             }
             case 4: {
