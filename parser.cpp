@@ -79,9 +79,14 @@ vector<string> DecodeJSON(string fileName) {
 // IF !READFROMJSON (NAME DICTIONARY?) PLEASE GENERATE PIGCTIONARY
 std::map<string, string> ReadFromJSON(string fileName) {
     std::map<string, string> dictionary;
+    vector<string> words = DecodeJSON(fileName);
 
-    DecodeJSON(fileName);
-
+    while (!words.empty()) {
+        string word1 = words[0];
+        string word2 = words[1];
+        dictionary.insert(std::make_pair(word1, word2));
+        words.erase(words.begin(), words.begin() + 1);
+    }
 
     return dictionary;
 }
