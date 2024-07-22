@@ -120,7 +120,6 @@ string pigifySentence(string &InputSentence) {
     std::ostringstream oss;
     bool firstWord = true;
 
-    // DOUBLE SPACES WHY!
     for (string &element : sentenceElements) {
         if (std::isspace(element[0])) {
             oss << element;
