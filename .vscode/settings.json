@@ -104,9 +104,17 @@
     "ctime": "cpp",
     "sstream": "cpp",
     "fstream": "cpp",
-    "map": "cpp"
+    "map": "cpp",
+    "chrono": "cpp",
+    "span": "cpp",
+    "charconv": "cpp",
+    "ratio": "cpp",
+    "format": "cpp",
+    "iomanip": "cpp",
+    "variant": "cpp"
   },
   "lldb.showDisassembly": "auto",
   "lldb.dereferencePointers": true,
-  "lldb.consoleMode": "commands"
+  "lldb.consoleMode": "commands",
+  "C_Cpp.errorSquiggles": "enabled"
 }

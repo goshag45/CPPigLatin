@@ -61,3 +61,18 @@ void WriteToJSON(string outputFileName, std::map<string, string> dictionary) {
         std::cerr << "Unable to create/open file: " << outputFileName << std::endl;
     }
 }
+
+// IF !READFROMJSON (NAME DICTIONARY?) PLEASE GENERATE PIGCTIONARY
+std::map<string, string> ReadFromJSON(string fileName) {
+    std::ofstream file(fileName);
+    std::map<string, string> dictionary;
+
+    if (file.is_open()) {
+
+        file.close();
+    } else {
+        std::cerr << "Unable to create/open file: " << fileName << std::endl;
+    }
+
+    return dictionary;
+}
