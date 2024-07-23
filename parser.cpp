@@ -57,7 +57,7 @@ void WriteToJSON(string outputFileName, std::map<string, string> dictionary) {
 }
 
 vector<string> DecodeJSON(string fileName) {
-    std::ofstream file(fileName);
+    std::ifstream file(fileName);
     vector<string> outputVector;
 
     if (file.is_open()) {
