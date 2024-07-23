@@ -9,4 +9,9 @@
  - Investigate exporting C++ projects as a single .exe [seems easy enough]
  - Maybe create simple GUI?
 
+***Known Issues***
+ - Spaces multiplying on unpigified output
+ - Unpigified output is doing 0 unpigifying
+ - No JSON reading yet
+
 _I'm going to learn C++ one way or another_
