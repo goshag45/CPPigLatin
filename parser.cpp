@@ -10,12 +10,6 @@
 using std::string;
 using std::vector;
 
-// setup text file as json kinda?
-// go through entire list
-// pigify each word 
-// write to json file as pigifiedword:originalword
-// will have to write a json parses OH WELL
-
 vector<string> ParseFile(string& fileName) {
     std::ifstream file(fileName);
     string word;
