@@ -3,3 +3,6 @@
 .vscode/c_cpp_properties.json
 .vscode/settings.json
 .vscode/tasks.json
+build/Debug/parser.o
+build/Debug/main.o
+build/Debug/outDebug.exe
