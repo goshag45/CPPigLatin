@@ -1,39 +1,43 @@
-#include <string>
+#include <algorithm>  // for std::transform
 #include <iostream>
 #include <map>
-#include <algorithm> // for std::transform
-#include <vector>
 #include <sstream>
+#include <string>
+#include <vector>
 
 #include "main.h"
 
 using std::string;
 
-string unpigifyWord(const string &word, std::map<string, string> dictionary) {
-    std::map<string, string>::iterator it;
-    string pigifiedWord = word;
-    
-    bool hasUpper = std::isupper(pigifiedWord[0]);
-    // from pigify in main
-    std::transform(pigifiedWord.begin(), pigifiedWord.end(), pigifiedWord.begin(),
-                   [](unsigned char c) { return std::tolower(c); });
+string unpigifyWord(const string &word, const std::map<string, string> &dictionary) {
+    string unpigifiedWord = word;
+    string tempWord = word;
+    bool hasUpper = false;
+    std::vector<int> capitalisedIndexes;
 
-    // this is so inefficient lmao 
-    // fix this dawg
-    for (it = dictionary.begin(); it != dictionary.end(); ++it) {
-        if (word == it->first) {
-            return it->second;
+    for (char c : tempWord) {
+        if (std::isupper(c)) {
+            hasUpper = true;
+            capitalisedIndexes.push_back(word.find(c));
         }
     }
 
-    if (hasUpper) {
-        pigifiedWord[0] = (char)std::toupper(pigifiedWord[0]);
+    std::transform(tempWord.begin(), tempWord.end(), tempWord.begin(),
+                   [](unsigned char c) { return std::tolower(c); });
+
+    auto it = dictionary.find(tempWord);
+    if (it != dictionary.end()) {
+        unpigifiedWord = it->second;
     }
 
-    return word;
+    for (int i : capitalisedIndexes) {
+        unpigifiedWord[i] = (char)std::toupper(unpigifiedWord[i]);
+    }
+
+    return unpigifiedWord;
 }
 
-string unpigifySentence(string &InputSentence, std::map<string, string> dictionary) {
+string unpigifySentence(string &InputSentence, std::map<string, string> &dictionary) {
     std::vector<string> sentenceElements = SplitString(InputSentence);
     std::ostringstream oss;
     bool firstWord = true;
